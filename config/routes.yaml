@@ -3,5 +3,5 @@
 #    controller: App\Controller\DefaultController::index
 
 app_score_number:
-    path: /score/number
+    path: /
     controller: App\Controller\ReadCsvController::index
