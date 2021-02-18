@@ -1,6 +1,6 @@
 # Welcome to ScoresTest!
 
-Hi! This project is a litle test fro read .CSV files in Symfony.
+Hi! This project is a litle test for read .CSV files in Symfony.
 ### Requeriments
 - PHP v7.4^.
 - Symfony CLI.
@@ -17,7 +17,7 @@ Just clone this repository and then do:
 You should use the symfony CLI:
 >symfony server:start
 
-After that go to the virtual server. You will see 6 table tests from one .CSV file already on repository.
+After that go to your mounted virtual server. You will see 6 table tests from one .CSV file already on repository.
 
 ### Preload Tests
 - For scores between 20-50
