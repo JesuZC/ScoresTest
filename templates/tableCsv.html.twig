@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .container-table{
+            float:left;
+            padding-left:13%;
+        }
+        .container-tableresults{
+            float:right;
+            margin:3%;
+            margin-right:16%;
+            padding-right:13%;
+        }
+        .control-scores{
+            margin-top:13%;
+        }
+        .control-criterion{
+            margin-top:5%;
+        }
+        .FastTest{
+            margin-top:13%;
+        }
+    </style>
+    <header><h2 style="color:#FFC0CB;margin-left:25%;">Welcome to Symfony CSV test</h2></header>
+    <body>
+        <h5 style="margin-left:10%;">Welcome to this litle php script which retrieves some data from a .csv file and process it.</h5>
+        <div>
+
+        <div class="container-table">
+        {% if data|length > 0 %}
+            <table>
+                <tr>
+                {% for item in header %}
+                    <th>{{item}}</th>
+                {% endfor %}
+                </tr>
+                {% for row in data %}
+                    <tr>
+                    {% for item in row %}
+                        <td>{{item}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        </div>
+        <div class="container-tableresults">
+            <h3><-Data from CSV</h3>
+        </div>
+{#         <div class="container-tableresults">
+        {% if query|length > 0 %}
+            <h5>Results</h5>
+            <table>
+                <tr>
+                {% for item in header %}
+                    <th>{{item}}</th>
+                {% endfor %}
+                </tr>
+                {% for row in query %}
+                    <tr>
+                    {% for item in row %}
+                        <td>{{item}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+        </div> #}
+        </div>
+        <br />
+
+        <div class="FastTest" style="display:grid;grid-template-columns: auto auto; margin-left:10%">
+            {% if results|length > 0 %}
+                    {% set i = 0 %}
+                {% for result in results %}
+                    <div style="margin-top:3%">
+                    <h2>Result from test:  {{i+1}}</h2>
+                    <h4>Count: </h4><p>{{ counts[i]}}</p>
+                    {% if result|length > 0 %}
+                        <table>
+                            <tr>
+                            {% for item in header %}
+                                <th>{{item}}</th>
+                            {% endfor %}
+                            </tr>
+                            {% for row in result %}
+                                <tr>    
+                                {% for item in row%}
+                                    <td>{{item}}</td>
+                                {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                    {% set i = i+1 %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {#<div style="margin-top:5%">
+        <div class="control-scores">
+            <h3>Search by Score Range</h3><br />
+            <form>
+                <input type="number" label="startline">Range Start</input>
+                <input type="number" label="endline">Range End</input>
+                <button>Clear</button>
+                <button>Find</button>
+            </form>
+        </div>
+        <div class="control-criterion">
+            <h3>Search by Criterion</h3><br />
+            <form>
+                {% if regions|length > 0 %}
+                    <select label="region" id="region">
+                        {% for region in regions %}
+                            <option value="{{region}}">{{region}}</option>
+                        {% endfor%}
+                    </select>
+                    <label for="region">Region</label>
+                {% endif %}
+                <select label="gender" id="gender">
+                    <option value="w">woman</option>
+                    <option value="m">man</option>
+                </select>
+                <label for="gender">Gender</label>
+                <input type="checkbox" label="legalAge">Legal Age</input>
+                <input type="checkbox" label="positiveScore">Positive Score</input>
+                <button>Clear</button>
+                <button>Find</button>
+            </form>
+        </div>
+        </div>#}
+    </body>
+</html>
