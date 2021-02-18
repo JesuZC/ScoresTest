@@ -7,6 +7,7 @@ Hi! This project is a litle test fro read .CSV files in Symfony.
 
 Just clone this repository and then do:
 >composer install
+
 >composer dump-autoload
 
 ## Test
